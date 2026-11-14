@@ -1,162 +1,167 @@
-# Evolução do prompt — IA de Apoio ao Atendimento
+# Evolução do Prompt — IA de Apoio ao Atendimento ao Cliente
 
-## 1. Primeira versão (V1)
+## 1. Primeira versão — V1
 
-O primeiro prompt foi desenvolvido para analisar reclamações e identificar:
+A primeira versão do prompt foi desenvolvida para analisar reclamações de clientes e identificar:
 
 - Categoria do problema.
 - Resumo da reclamação.
 - Prioridade.
-- Sentimento do cliente.
-- Sugestão de resposta.
+- Sentimento predominante.
+- Sugestão de resposta ao cliente.
 
-O objetivo inicial era verificar se a IA conseguia compreender diferentes manifestações de clientes e organizar as informações de forma estruturada.
+O objetivo inicial era criar uma IA capaz de organizar as manifestações recebidas e facilitar a identificação dos problemas apresentados pelos consumidores.
 
-## 2. Problema identificado nos testes da V1
+## 2. Primeiros testes e problemas identificados
 
-Durante os cinco testes iniciais, quatro resultados corresponderam à prioridade esperada.
+Foram realizados cinco testes com mensagens fictícias, envolvendo consulta sobre estoque, atraso na entrega, cobrança duplicada, dificuldade de acesso à conta e descumprimento contratual.
 
-No teste 4, sobre dificuldade de acesso à conta, a IA classificou como alta uma ocorrência cuja prioridade esperada era média.
+Nos testes iniciais, quatro das cinco classificações de prioridade corresponderam às expectativas.
 
-A análise indicou que a insatisfação e a urgência expressas pelo cliente poderiam estar influenciando a classificação da gravidade do problema.
+O principal problema ocorreu no caso de dificuldade de acesso à conta. A IA classificou a ocorrência como prioridade alta, embora não houvesse informações suficientes sobre prejuízo significativo ou impedimento de uma atividade essencial.
 
-## 3. Melhorias propostas para a V3
+A partir dessa análise, identificou-se a necessidade de aprimorar os critérios de classificação.
 
-A partir das observações, foram definidas três melhorias principais:
+## 3. Segunda versão — V3
 
-### A. Separar urgência e prioridade
+A V3 foi desenvolvida para ampliar a capacidade de análise e melhorar a organização das demandas.
 
-- **Prioridade:** representa o impacto e a gravidade do problema.
-- **Urgência:** representa a necessidade de rapidez na atuação ou no encaminhamento.
+As principais melhorias foram:
 
-### B. Identificar o setor responsável
+- Separação entre prioridade e urgência.
+- Justificativa para cada classificação.
+- Identificação do setor responsável e dos setores de apoio.
+- Inclusão de prazo sugerido para o primeiro retorno.
+- Definição de situações que exigem avaliação humana.
+- Orientações para evitar promessas de solução, reembolso ou prazos não confirmados.
 
-A IA deveria sugerir o encaminhamento para:
+### Problemas identificados nos testes da V3
 
-- Financeiro.
-- Logística.
-- Atendimento.
-- Suporte técnico.
-- Comercial.
-- Outros.
+Ao testar novamente os cinco cenários originais, foram identificados dois pontos importantes:
 
-### C. Identificar a necessidade de avaliação humana
+**Problema de acesso à conta:** a IA continuou classificando a prioridade como alta, mesmo sem evidências suficientes de impacto significativo.
 
-A IA deveria indicar quando uma ocorrência exige análise de um profissional antes de qualquer decisão ou ação.
+**Descumprimento contratual:** a ameaça de registrar uma reclamação no Procon influenciou a classificação de urgência, embora essa manifestação, isoladamente, não represente necessariamente uma consequência imediata.
 
-## 4. Prazos sugeridos para retorno
+Esses resultados demonstraram que a separação entre prioridade e urgência precisava de regras mais específicas.
 
-Foram estabelecidas referências iniciais para o primeiro retorno ao cliente:
+## 4. Terceira versão — V4
 
-- Alta prioridade: até 48 horas.
-- Média prioridade: até 3 dias úteis.
-- Baixa prioridade: até 5 dias úteis.
+A V4 foi desenvolvida para corrigir os problemas identificados na V3.
 
-Esses prazos não representam garantias de resolução e precisam ser ajustados conforme as regras e os níveis de serviço de cada empresa.
+### Principais melhorias
 
-## 5. Objetivo da versão 3
+**Critérios de prioridade**
 
-Desenvolver uma análise mais consistente, considerando:
+Foram definidos critérios mais claros para classificar as manifestações como baixa, média ou alta, considerando o impacto sobre o cliente, prejuízos financeiros, recorrência e riscos envolvidos.
 
-- Gravidade e impacto do problema.
-- Urgência temporal.
-- Setor responsável.
-- Necessidade de avaliação humana.
-- Prazo sugerido para primeiro retorno.
+**Critérios de urgência**
 
-## 6. Análise dos testes da V3
+Foram estabelecidas regras para diferenciar situações de intervenção imediata, alta, normal ou baixa.
 
-Os mesmos cinco cenários fictícios foram utilizados para avaliar o comportamento da nova versão.
+**Tratamento de situações específicas**
 
-Os testes demonstraram avanços na identificação dos setores e na indicação de avaliação humana, mas também revelaram pontos que precisavam de ajustes.
+- Problemas de acesso não devem receber prioridade alta automaticamente.
+- A solicitação de resolução no mesmo dia não determina, sozinha, urgência alta.
+- A ameaça de procurar o Procon não determina, por si só, urgência alta.
+- Cobranças recorrentes e prejuízos financeiros significativos devem receber atenção diferenciada.
+- Suspeitas de fraude, invasão ou exposição de dados exigem encaminhamento prioritário para avaliação humana.
 
-### Principais problemas identificados
+### Resultados da primeira rodada de testes da V4
 
-**Teste 4 — Problema de acesso à conta**
+Os cinco cenários originais foram testados novamente.
 
-A IA classificou a ocorrência como alta prioridade e alta urgência, embora não houvesse informações suficientes para confirmar que a dificuldade de acesso impedia uma atividade essencial.
+As classificações apresentaram coerência com os critérios estabelecidos:
 
-**Teste 5 — Descumprimento de serviço contratado**
+| Teste | Cenário | Resultado |
+|---|---|---|
+| 1 | Consulta sobre estoque | Coerente |
+| 2 | Atraso no pedido | Coerente |
+| 3 | Cobrança duplicada | Coerente |
+| 4 | Problema de acesso à conta | Coerente |
+| 5 | Descumprimento contratual | Coerente |
 
-A prioridade alta foi considerada adequada pelo pagamento antecipado e pelo possível descumprimento contratual. Entretanto, a urgência alta foi influenciada pelo prazo exigido pelo cliente e pela ameaça de reclamação no Procon.
+**Resultado: 5 de 5 cenários com classificações coerentes.**
 
-### Melhorias necessárias
+## 5. Segunda rodada de testes — Ampliação dos cenários
 
-- Evitar classificar automaticamente problemas de acesso como alta prioridade.
-- Considerar o impacto real da indisponibilidade.
-- Diferenciar a gravidade do problema da necessidade de resolução imediata.
-- Não interpretar a exigência de resolução no mesmo dia como urgência alta por si só.
-- Não utilizar a ameaça de reclamação formal como único critério para aumentar a urgência.
+Após os resultados da primeira rodada, foram criados mais cinco cenários fictícios para verificar o comportamento da V4 em situações diferentes das utilizadas inicialmente.
 
-## 7. Desenvolvimento da versão 4 (V4)
+Os novos testes envolveram:
 
-Com base nos problemas identificados nos testes da V3, foi desenvolvida a quarta versão do prompt.
+- Entrega incompleta.
+- Suspeita de acesso não autorizado.
+- Falha recorrente no serviço.
+- Insatisfação com a experiência de compra.
+- Dúvida sobre cobrança.
 
-O V4 recebeu regras mais específicas para orientar a análise de situações que poderiam gerar classificações equivocadas.
+### Resultados e aprendizados
 
-### Principais melhorias implementadas
+**Teste 6 — Entrega incompleta**
 
-**A. Problemas de acesso**
+A IA classificou a prioridade como média e a urgência como normal, encaminhando a ocorrência para Logística.
 
-A dificuldade de acesso passou a ser classificada como média prioridade na ausência de evidências de prejuízo significativo ou impedimento de atividade essencial.
+A classificação foi considerada coerente. A IA também identificou a necessidade de verificar se os produtos ausentes haviam sido cobrados.
 
-**B. Diferenciação entre prioridade e urgência**
+Aprendizado: uma entrega parcial pode envolver uma divergência financeira, mas não se deve presumir cobrança indevida antes da investigação.
 
-A IA passou a avaliar separadamente o impacto do problema e a necessidade de atuação imediata.
+**Teste 7 — Suspeita de acesso não autorizado**
 
-**C. Prazos exigidos pelo cliente**
+A IA classificou a prioridade como alta e a urgência como imediata, encaminhando a ocorrência para Segurança.
 
-A solicitação de resolução em determinado prazo deve ser registrada, mas não aumenta automaticamente a urgência. É necessário avaliar as consequências concretas do atraso.
+A classificação foi considerada coerente devido ao risco potencial de invasão e exposição de dados pessoais.
 
-**D. Ameaças de reclamação formal**
+Aprendizado: alterações de credenciais não reconhecidas, associadas à perda de acesso, devem ser tratadas como possíveis incidentes de segurança.
 
-A possibilidade de registrar reclamação no Procon deve ser considerada no histórico e no encaminhamento, mas não determina isoladamente a urgência operacional.
+Também foi identificado que a resposta sugerida não deve afirmar que uma ocorrência já foi encaminhada quando a IA apenas recomenda essa ação.
 
-**E. Descumprimento contratual**
+**Teste 8 — Falha recorrente no serviço**
 
-O pagamento antecipado associado a um possível descumprimento contratual pode justificar prioridade alta e avaliação humana, sem que isso represente automaticamente urgência alta.
+A IA classificou a prioridade como alta e a urgência como alta, encaminhando a ocorrência para Suporte técnico.
 
-**F. Limites de atuação da IA**
+A prioridade foi considerada coerente devido à recorrência das falhas e ao impacto na rotina profissional do cliente.
 
-A IA não deve prometer reembolsos, assumir compromissos em nome da empresa ou tomar decisões financeiras e contratuais. Deve identificar a necessidade de análise humana e sugerir o encaminhamento adequado.
+Entretanto, a urgência recebeu uma ressalva: não havia informação suficiente para confirmar que o serviço estava indisponível naquele momento ou que uma atividade essencial estava impedida.
 
-## 8. Resultados dos testes da V4
+Aprendizado: a recorrência aumenta a relevância do problema, mas não determina automaticamente urgência alta. É necessário considerar a situação atual e as consequências concretas para o cliente.
 
-A quarta versão foi testada utilizando os mesmos cinco cenários fictícios.
+**Teste 9 — Insatisfação com a experiência de compra**
 
-| Teste | Prioridade | Urgência | Resultado |
-|---|---|---|---|
-| 1. Consulta sobre estoque | Baixa | Baixa | Correto |
-| 2. Atraso no pedido | Média | Normal | Correto |
-| 3. Cobrança duplicada | Alta | Alta | Correto |
-| 4. Problema de acesso | Média | Normal | Correto |
-| 5. Descumprimento de serviço | Alta | Normal | Correto |
+A IA classificou a prioridade e a urgência como baixas, encaminhando a manifestação para Atendimento.
 
-Os cinco cenários apresentaram classificações coerentes com os critérios definidos para o projeto.
+A classificação foi considerada coerente. O cliente demonstrou insatisfação, mas não relatou prejuízo financeiro ou impossibilidade de concluir uma compra.
 
-### Observações identificadas
+Aprendizado: o sentimento negativo do cliente não deve determinar automaticamente a prioridade da ocorrência. Feedbacks também podem representar oportunidades de melhoria.
 
-Apesar dos resultados positivos, dois pontos merecem atenção:
+**Teste 10 — Dúvida sobre cobrança**
 
-- No teste 4, o prazo sugerido de até três dias úteis pode ser lento para um cliente totalmente impedido de acessar sua conta.
-- No teste 5, a resposta sugerida registra a solicitação de retorno ainda hoje, enquanto o prazo indicado é de até 48 horas. Essa divergência precisa ser considerada pela equipe.
+A IA classificou a prioridade como média e a urgência como normal, encaminhando a ocorrência para Financeiro.
 
-Esses pontos demonstram que a classificação pode estar correta, mas a recomendação operacional ainda precisa considerar as regras e os compromissos de atendimento da empresa.
+A classificação foi considerada coerente, pois o cliente ainda não sabia se o valor questionado correspondia a uma taxa contratual ou a uma cobrança indevida.
 
-## 9. Conclusão da evolução
+Aprendizado: a IA deve identificar a necessidade de investigação financeira sem afirmar que houve irregularidade antes da confirmação.
 
-A evolução das versões V1, V3 e V4 demonstra a importância de testar, analisar resultados e ajustar instruções para melhorar o comportamento de uma IA.
+## 6. Aprendizados gerais das duas rodadas
 
-O principal avanço do V4 foi a capacidade de diferenciar melhor prioridade e urgência, considerando o contexto e o impacto real de cada ocorrência.
+Os dez testes permitiram identificar pontos importantes para o desenvolvimento do projeto:
 
-Os resultados são positivos, mas ainda iniciais. Foram utilizados apenas cinco cenários fictícios, portanto não representam uma validação estatística nem garantem o mesmo desempenho em situações reais.
+1. Prioridade e urgência precisam ser avaliadas separadamente.
+2. O sentimento do cliente não determina automaticamente a prioridade.
+3. A recorrência deve ser considerada, mas não significa necessariamente urgência imediata.
+4. Ameaças de reclamação em órgãos de defesa do consumidor não devem determinar sozinhas a urgência.
+5. Suspeitas de fraude, invasão ou exposição de dados exigem tratamento prioritário.
+6. A IA não deve presumir irregularidades financeiras sem investigação.
+7. A avaliação humana é importante em situações financeiras, contratuais e de segurança.
+8. A resposta sugerida não deve afirmar que uma ação já foi realizada quando a IA apenas recomenda seu encaminhamento.
+9. Os prazos de primeiro retorno precisam ser compatíveis com o impacto da ocorrência.
+10. Informações adicionais podem ser necessárias para melhorar a análise, mas nem sempre devem impedir o registro inicial da manifestação.
 
-## 10. Próximas etapas
+## 7. Situação atual do prompt
 
-1. Ampliar os testes com novas reclamações e situações ambíguas.
-2. Avaliar mensagens com informações incompletas ou contraditórias.
-3. Refinar os critérios de classificação e encaminhamento.
-4. Planejar a construção de um fluxo de automação utilizando n8n.
-5. Avaliar a integração com canais de atendimento, como WhatsApp e e-mail.
+A V4 apresentou resultados coerentes nos dez cenários avaliados, com uma ressalva na classificação de urgência do teste de falha recorrente.
 
-**Status atual:** Prompt V4 desenvolvido e testado em cinco cenários fictícios. Próxima etapa: ampliar a avaliação e iniciar o planejamento da automação.
+Também foram identificadas oportunidades de melhoria na redação das respostas sugeridas, especialmente para diferenciar uma ação recomendada de uma ação efetivamente executada.
+
+Neste momento, os resultados são considerados uma validação inicial do comportamento do prompt, e não uma comprovação de precisão em atendimentos reais.
+
+**Decisão:** manter a V4 como versão de referência e registrar os pontos de
