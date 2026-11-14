@@ -1,0 +1,71 @@
+Evolução do prompt — IA de Apoio ao Atendimento
+
+1. Primeira versão (V1)
+
+O primeiro prompt foi desenvolvido para analisar reclamações e identificar:
+
+Categoria do problema.
+
+Resumo da reclamação.
+
+Prioridade.
+
+Sentimento do cliente.
+
+Sugestão de resposta.
+
+2. Problema identificado nos testes
+
+Durante os cinco testes iniciais, quatro resultados corresponderam à prioridade esperada. No teste 4, a IA classificou como alta uma ocorrência cuja prioridade esperada era média.
+
+A análise indicou que a insatisfação e a urgência expressas pelo cliente poderiam estar influenciando a classificação da gravidade do problema.
+
+3. Melhorias propostas
+
+A partir dessa observação, foram definidas três melhorias:
+
+A. Separar urgência e prioridade
+
+Prioridade: representa o impacto e a gravidade do problema.
+
+Urgência: representa o tempo necessário para iniciar o atendimento ou tomar uma providência.
+
+B. Identificar o setor responsável
+
+A IA deverá sugerir o encaminhamento para:
+
+Financeiro.
+
+Logística.
+
+Atendimento.
+
+Suporte técnico.
+
+Comercial.
+
+Outros.
+
+C. Identificar a necessidade de avaliação humana
+
+A IA deverá indicar quando uma ocorrência exige análise de um profissional antes de qualquer decisão ou ação.
+
+4. Prazos sugeridos para retorno
+
+Como referência inicial para o protótipo:
+
+Alta prioridade: retorno em até 48 horas.
+
+Média prioridade: retorno em até 3 dias úteis.
+
+Baixa prioridade: retorno em até 5 dias úteis.
+
+Esses prazos são referências para o primeiro retorno ao cliente, não garantias de resolução. Devem ser ajustados conforme as regras de cada empresa.
+
+5. Objetivo da versão 3
+
+Desenvolver uma análise mais consistente, que considere a gravidade e o impacto do problema, a urgência temporal, o setor responsável e a necessidade de avaliação humana.
+
+6. Próxima etapa
+
+Testar a nova versão com as mesmas cinco mensagens fictícias e comparar os resultados com a primeira versão.
