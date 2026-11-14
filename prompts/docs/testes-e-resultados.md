@@ -1,78 +1,73 @@
-Testes e resultados — IA de Apoio ao Atendimento
+# Testes e resultados — IA de Apoio ao Atendimento ao Cliente
 
-1. Objetivo dos testes
+## Objetivo
 
-Avaliar a capacidade do prompt de analisar reclamações fictícias, identificar o problema apresentado e sugerir uma classificação de prioridade adequada.
+Registrar os testes realizados com diferentes versões do prompt, avaliar a qualidade das classificações e documentar os ajustes necessários para melhorar a triagem de reclamações.
 
-Foram utilizadas cinco mensagens fictícias, com diferentes níveis de impacto e complexidade.
+Os testes foram realizados com cinco mensagens fictícias, mantendo os mesmos textos para permitir a comparação entre as versões.
 
+---
 
-2. Resultados da primeira versão
+## 1. Cenários utilizados nos testes
 
-Teste 1
+**Teste 1 — Consulta sobre estoque**
 
-Prioridade esperada: Baixa
+> Gostaria de saber se vocês possuem uma previsão para disponibilizar novamente o produto que está esgotado no site.
 
-Resultado da IA: Baixa
+**Teste 2 — Atraso no pedido**
 
-Avaliação: Correto
+> Realizei minha compra há cinco dias e o pedido ainda não foi enviado. No site, consta que o prazo de postagem era de dois dias.
 
-Teste 2
+**Teste 3 — Cobrança duplicada**
 
-Prioridade esperada: Média
+> Já entrei em contato quatro vezes sobre uma cobrança duplicada. Vocês continuam descontando o valor da minha conta e ninguém resolve. Quero meu dinheiro de volta.
 
-Resultado da IA: Média
+**Teste 4 — Problema de acesso à conta**
 
-Avaliação: Correto
+> Não consigo entrar na minha conta de jeito nenhum. Coloco meu e-mail e senha e dá "credenciais inválidas". Já cliquei em "esqueci minha senha" duas vezes e o link de redefinição nunca chega na minha caixa de entrada, nem no spam. Preciso acessar meu painel agora.
 
-Teste 3
+**Teste 5 — Descumprimento de serviço contratado**
 
-Prioridade esperada: Alta
+> Estou muito decepcionado. Contratei o serviço, paguei antecipadamente e a empresa não cumpriu o que prometeu. Se ninguém resolver hoje, vou registrar uma reclamação no Procon.
 
-Resultado da IA: Alta
+---
 
-Avaliação: Correto
+## 2. Resultados da versão V1
 
-Teste 4
+A primeira versão foi utilizada para verificar se a IA conseguia identificar o problema, classificar a prioridade e sugerir um encaminhamento inicial.
 
-Prioridade esperada: Média
+| Teste | Prioridade esperada | Resultado V1 | Avaliação |
+|---|---|---|---|
+| 1. Estoque | Baixa | Baixa | Correto |
+| 2. Atraso | Média | Média | Correto |
+| 3. Cobrança duplicada | Alta | Alta | Correto |
+| 4. Acesso à conta | Média | Alta | Parcialmente correto |
+| 5. Descumprimento de serviço | Alta | Alta | Correto |
 
-Resultado da IA: Alta
+**Resultado:** 4 de 5 classificações corresponderam à expectativa inicial.
 
-Avaliação: Parcialmente correto
+**Principal ponto de melhoria:** o problema de acesso à conta foi classificado com prioridade alta sem evidências suficientes de impacto significativo. Era necessário diferenciar a dificuldade de acesso de situações em que a indisponibilidade impede uma atividade essencial.
 
-Teste 5
+---
 
-Prioridade esperada: Alta
+## 3. Resultados da versão V3
 
-Resultado da IA: Alta
+A versão V3 incorporou critérios mais detalhados para classificação de prioridade, urgência e necessidade de avaliação humana.
 
-Avaliação: Correto
+| Teste | Prioridade | Urgência | Avaliação |
+|---|---|---|---|
+| 1. Estoque | Baixa | Baixa | Correto |
+| 2. Atraso | Média | Normal | Adequado |
+| 3. Cobrança duplicada | Alta | Alta | Correto |
+| 4. Acesso à conta | Alta | Alta | Classificação excessiva |
+| 5. Descumprimento de serviço | Alta | Alta | Parcialmente correto |
 
+### Principais observações
 
-3. Análise dos resultados
+**Teste 1 — Estoque:** classificação adequada. Solicitação informativa, sem impacto imediato.
 
-Nos testes iniciais, foi identificado que a IA poderia confundir o sentimento do cliente com a gravidade do problema.
+**Teste 2 — Atraso:** classificação adequada. O problema foi identificado e encaminhado à logística. A necessidade de avaliação humana poderia ser melhor calibrada.
 
-No teste 4, por exemplo, o cliente relatou dificuldade para acessar sua conta, demonstrou insatisfação e urgência na resolução. A IA classificou a ocorrência como prioridade alta, embora a classificação esperada no exercício fosse média.
+**Teste 3 — Cobrança duplicada:** classificação adequada. A IA identificou o impacto financeiro, as tentativas anteriores de contato e a necessidade de avaliação humana.
 
-Esse resultado demonstrou a necessidade de estabelecer critérios mais objetivos para classificar prioridades.
-
-
-4. Oportunidades de melhoria
-
-Diferenciar sentimento do cliente e prioridade da ocorrência.
-
-Avaliar o impacto real do problema.
-
-Considerar tentativas anteriores de resolução.
-
-Identificar situações que exigem atenção imediata.
-
-Sugerir o setor responsável pelo atendimento.
-
-Diferenciar casos que precisam de avaliação humana daqueles que podem seguir para tratamento automatizado.
-
-6. Observação
-
-Os resultados representam testes experimentais com mensagens fictícias. As classificações esperadas são referências definidas para este exercício e deverão ser ajustadas conforme as regras de negócio de uma empresa real.
+**Teste 4 — Acesso à conta:** prioridade e urgência foram superestimadas. A mensagem não apresentava evidências suficientes de que o acesso era essencial para uma
