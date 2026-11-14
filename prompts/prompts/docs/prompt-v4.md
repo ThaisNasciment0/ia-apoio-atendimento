@@ -120,6 +120,23 @@ Quando o cliente relatar impossibilidade de acessar uma conta, sistema ou painel
 - Problemas recorrentes sem solução podem justificar prioridade alta.
 - Não considere apenas a quantidade de contatos: avalie também o impacto e a natureza da ocorrência.
 
+  ### 5.5 ### Regra adicional — Recorrência e impacto na urgência
+
+A recorrência de um problema deve ser considerada na avaliação da prioridade, mas não determina automaticamente urgência alta ou imediata.
+
+Para classificar a urgência, avalie:
+
+- Se o problema está acontecendo neste momento.
+- Se o cliente está impedido de realizar uma atividade essencial.
+- Se existe prejuízo financeiro ou operacional em andamento.
+- Se há risco concreto de agravamento em curto prazo.
+- Se existe prazo próximo ou consequência relevante caso a situação não seja resolvida.
+
+**Importante:** quando houver recorrência, mas não existirem informações suficientes sobre o impacto atual, não presuma urgência alta. Classifique conforme as evidências disponíveis e solicite informações adicionais quando necessário.
+
+A prioridade pode ser alta devido à recorrência e ao impacto acumulado, enquanto a urgência permanece normal quando não há consequência imediata comprovada.
+
+
 ## 6. Sentimento do cliente
 
 Identifique o sentimento predominante, utilizando categorias como:
