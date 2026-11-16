@@ -380,3 +380,37 @@ O sentimento também foi corrigido, passando de frustrado/insatisfeito para neut
 **Conclusão:**
 
 A versão 4.5 apresentou evolução consistente na classificação de problemas recorrentes, demonstrando maior aderência aos critérios definidos para o protótipo.
+
+## Teste 14 — Cobrança não reconhecida (V4.5)
+
+**Mensagem utilizada:**
+
+"Consultei minha fatura e encontrei uma cobrança de R$ 189,90 que não reconheço. Não me lembro de ter contratado nenhum serviço nesse valor. Ainda não sei se é uma cobrança indevida ou alguma taxa prevista no contrato. Gostaria de entender do que se trata antes de realizar qualquer pagamento."
+
+**Resultado da IA:**
+- Categoria: Cobrança / Fatura – Cobrança não reconhecida.
+- Prioridade: Baixa.
+- Urgência: Normal.
+- Sentimento: Neutro.
+- Setor: Financeiro / Cobrança.
+
+**Avaliação:** Parcialmente satisfatório.
+
+**Pontos positivos:**
+- Identificou corretamente a categoria e o setor.
+- Não afirmou que a cobrança era indevida.
+- Diferenciou fatos de hipóteses.
+- Não classificou a situação como urgente sem evidências.
+- Identificou a necessidade de análise financeira.
+
+**Pontos a melhorar:**
+- A prioridade deveria ser média, conforme os critérios deste protótipo.
+- Melhorar a qualidade gramatical e a clareza do texto.
+- Orientar o fornecimento de informações financeiras somente por canais seguros.
+- Evitar solicitar dados desnecessários.
+
+**Conclusão:**
+
+A V4.5 demonstrou cautela ao interpretar uma cobrança ainda não identificada, evitando conclusões precipitadas. Entretanto, classificou a prioridade abaixo do esperado, indicando a necessidade de critérios mais específicos para ocorrências financeiras.
+
+A urgência normal foi considerada adequada, pois não havia evidência de prejuízo imediato ou prazo crítico.
