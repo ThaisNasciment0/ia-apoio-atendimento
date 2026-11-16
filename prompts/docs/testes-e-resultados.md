@@ -414,3 +414,41 @@ A versão 4.5 apresentou evolução consistente na classificação de problemas 
 A V4.5 demonstrou cautela ao interpretar uma cobrança ainda não identificada, evitando conclusões precipitadas. Entretanto, classificou a prioridade abaixo do esperado, indicando a necessidade de critérios mais específicos para ocorrências financeiras.
 
 A urgência normal foi considerada adequada, pois não havia evidência de prejuízo imediato ou prazo crítico.
+
+## Teste 14 — Cobrança não reconhecida (V4.6)
+
+**Mensagem utilizada:**
+
+"Consultei minha fatura e encontrei uma cobrança de R$ 189,90 que não reconheço. Não me lembro de ter contratado nenhum serviço nesse valor. Ainda não sei se é uma cobrança indevida ou alguma taxa prevista no contrato. Gostaria de entender do que se trata antes de realizar qualquer pagamento."
+
+**Resultados:**
+
+- Categoria: Cobrança não confirmada / Divergência na fatura.
+- Prioridade esperada: Média.
+- Prioridade da IA: Média.
+- Urgência: Normal.
+- Sentimento: Neutro.
+- Setor responsável: Financeiro / Cobrança.
+
+**Avaliação:**
+
+A classificação foi considerada correta. A nova regra financeira da V4.6 corrigiu o resultado anterior, que havia classificado a ocorrência como baixa prioridade.
+
+A IA reconheceu que uma cobrança não identificada precisa de análise, mesmo sem confirmação de pagamento ou prejuízo financeiro. Também diferenciou corretamente prioridade e urgência, sem presumir que a cobrança fosse indevida.
+
+**Pontos positivos:**
+- Aplicação correta da regra de prioridade média.
+- Separação adequada entre fatos, hipóteses e informações pendentes.
+- Encaminhamento coerente ao setor Financeiro/Cobrança.
+- Respeito às orientações de segurança.
+
+**Oportunidades de melhoria:**
+- Corrigir erros gramaticais no resumo.
+- Utilizar expressões mais claras e naturais.
+- Solicitar somente as informações necessárias para a análise, preferencialmente por canal seguro.
+
+**Conclusão:**
+
+A V4.6 apresentou evolução em relação à V4.5. A nova regra financeira funcionou conforme esperado. Os ajustes de escrita e objetividade das perguntas serão acompanhados nos próximos testes.
+
+
