@@ -204,3 +204,31 @@ Também continuou atribuindo frustração sem evidências emocionais suficientem
 A inclusão de regras e justificativas melhora a estrutura das respostas, mas não garante que o modelo interprete corretamente todas as situações.
 
 A próxima versão deverá reforçar os critérios para diferenciar manifestações de pressa de situações que realmente exigem atendimento imediato.
+
+## V4.6 — Critérios para ocorrências financeiras
+
+**Motivo da atualização:**
+
+No teste 14, a IA classificou como baixa prioridade uma cobrança de R$ 189,90 que o cliente não reconhecia. Embora não houvesse pagamento ou prejuízo financeiro confirmado, a situação precisava de análise pelo setor responsável.
+
+**Alterações realizadas:**
+
+- Inclusão de uma regra específica para cobranças não reconhecidas e divergências em faturas.
+- Definição de prioridade inicialmente média para esse tipo de ocorrência.
+- Diferenciação entre prioridade e urgência.
+- Critérios para elevar a prioridade quando houver recorrência, tentativas anteriores sem solução ou prejuízo financeiro relevante.
+- Reforço da necessidade de validação humana antes de estornos, cancelamentos ou alterações de cobrança.
+- Orientação para solicitar somente informações necessárias, preservando os dados do cliente.
+
+**Resultado do teste:**
+
+No teste 14, a V4.6 classificou corretamente a cobrança não reconhecida como prioridade média e urgência normal.
+
+**Aprendizado:**
+
+A ausência de prejuízo financeiro confirmado não significa que uma ocorrência financeira deva ser considerada de baixa prioridade. É importante reconhecer a necessidade de investigação sem presumir que houve uma cobrança indevida.
+
+**Ponto de atenção:**
+
+A resposta ainda apresentou problemas gramaticais e pode melhorar na objetividade das solicitações de informações.
+
