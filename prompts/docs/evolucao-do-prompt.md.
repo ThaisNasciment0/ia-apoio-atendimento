@@ -165,3 +165,42 @@ Também foram identificadas oportunidades de melhoria na redação das respostas
 Neste momento, os resultados são considerados uma validação inicial do comportamento do prompt, e não uma comprovação de precisão em atendimentos reais.
 
 **Decisão:** manter a V4 como versão de referência e registrar os pontos de
+
+
+
+## Evolução das versões V4.2 e V4.3
+
+### Versão 4.2 — Inclusão de justificativas
+
+**Objetivo:** tornar as classificações mais transparentes, permitindo compreender os motivos utilizados pela IA para definir prioridade e urgência.
+
+**Melhoria implementada:**
+- Inclusão de justificativa para prioridade e urgência.
+- Orientação para considerar impacto, recorrência e tentativas anteriores.
+- Reforço para não presumir consequências não relatadas.
+
+**Resultado dos testes:**
+
+A IA apresentou justificativas mais detalhadas, mas ainda demonstrou dificuldades para diferenciar sentimento, urgência e impacto real.
+
+### Versão 4.3 — Separação entre fatos e hipóteses
+
+**Objetivo:** reduzir interpretações equivocadas e melhorar a qualidade das informações apresentadas.
+
+**Melhorias implementadas:**
+- Separação entre fatos informados, hipóteses e informações pendentes.
+- Regras mais claras para identificar sentimentos.
+- Reforço das orientações de segurança e proteção de dados.
+- Proibição de presumir impactos não relatados.
+
+**Resultado dos testes:**
+
+A organização das informações melhorou. Entretanto, a IA continuou classificando como imediata uma situação de dificuldade de acesso à conta, utilizando a expressão "preciso acessar meu painel agora" como justificativa.
+
+Também continuou atribuindo frustração sem evidências emocionais suficientemente claras.
+
+**Aprendizado:**
+
+A inclusão de regras e justificativas melhora a estrutura das respostas, mas não garante que o modelo interprete corretamente todas as situações.
+
+A próxima versão deverá reforçar os critérios para diferenciar manifestações de pressa de situações que realmente exigem atendimento imediato.
