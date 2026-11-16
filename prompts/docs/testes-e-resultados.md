@@ -347,4 +347,36 @@ O projeto ainda está em desenvolvimento e os resultados apresentados são exper
 | Novembro/2026 | V4.2 | Testes automatizados e inclusão de justificativas |
 | Novembro/2026 | V4.3 | Separação entre fatos, hipóteses e informações pendentes |
 | A definir | V4.4 | Próxima etapa de aprimoramento |
+## Teste 13 — Indisponibilidade recorrente do serviço (V4.5)
 
+**Resultado da IA:**
+- Categoria: Serviço indisponível.
+- Prioridade: Alta.
+- Urgência: Normal.
+- Sentimento: Neutro.
+- Setor: Suporte Técnico / Equipe de Disponibilidade de Serviços.
+
+**Avaliação:** Satisfatório.
+
+**Evolução em relação à V4.4:**
+
+A V4.5 corrigiu a classificação da prioridade, considerando a recorrência do problema e as tentativas anteriores de resolução sem solução definitiva.
+
+A urgência permaneceu normal, pois não foram apresentados elementos que comprovassem um impacto crítico imediato.
+
+O sentimento também foi corrigido, passando de frustrado/insatisfeito para neutro, uma vez que o cliente não demonstrou explicitamente uma emoção.
+
+**Pontos positivos:**
+- Considerou corretamente a recorrência.
+- Diferenciou prioridade e urgência.
+- Apresentou justificativa coerente.
+- Separou fatos, hipóteses e informações pendentes.
+
+**Pontos a melhorar:**
+- Aprimorar a revisão gramatical.
+- Formular perguntas mais simples e adequadas ao cliente.
+- Evitar solicitar informações técnicas que podem ser verificadas internamente.
+
+**Conclusão:**
+
+A versão 4.5 apresentou evolução consistente na classificação de problemas recorrentes, demonstrando maior aderência aos critérios definidos para o protótipo.
