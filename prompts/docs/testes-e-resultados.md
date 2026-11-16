@@ -1,236 +1,350 @@
-# Testes e Resultados — IA de Apoio ao Atendimento ao Cliente
+# REGISTRO DE TESTES E EVOLUÇÃO
+## Projeto: IA de Apoio ao Atendimento ao Cliente
 
-## 1. Objetivo dos testes
+**Autora:** Thais Nascimento  
+**Área:** Inteligência Artificial | Experiência do Cliente | Automação  
+**Status:** Protótipo em desenvolvimento  
+**Início do projeto:** Outubro de 2026
 
-Avaliar o comportamento do prompt de IA desenvolvido para apoiar a triagem de reclamações e manifestações de clientes.
+---
 
-Os testes buscam verificar se a IA consegue:
+# 1. Objetivo dos testes
 
-- Identificar corretamente a categoria do problema.
-- Resumir a manifestação do cliente.
-- Classificar prioridade e urgência de forma independente.
-- Identificar o sentimento predominante.
-- Sugerir o setor responsável pelo atendimento.
-- Elaborar uma resposta inicial adequada.
-- Identificar situações que necessitam de avaliação humana.
-- Solicitar informações adicionais relevantes.
+Os testes têm como objetivo avaliar a capacidade de um modelo de inteligência artificial de analisar mensagens de clientes e apoiar uma equipe de atendimento na triagem de reclamações.
 
-Foram utilizados dez cenários fictícios de atendimento, divididos em duas rodadas de testes.
+A avaliação considera:
 
-## 2. Primeira rodada — Testes iniciais
+- Identificação da categoria da ocorrência.
+- Resumo do problema.
+- Classificação da prioridade.
+- Classificação da urgência.
+- Identificação do sentimento do cliente.
+- Indicação do setor responsável.
+- Justificativa das classificações.
+- Separação entre fatos, hipóteses e informações pendentes.
+- Identificação de situações que exigem avaliação humana.
 
-Foram utilizados cinco exemplos de reclamações para avaliar a primeira versão do prompt.
+Foram utilizadas mensagens fictícias, sem dados pessoais ou informações reais de clientes.
 
-### Resultados da V1
+# 2. Histórico das versões testadas
 
-| Teste | Cenário | Prioridade esperada | Resultado | Avaliação |
-|---|---|---|---|---|
-| 1 | Consulta sobre estoque | Baixa | Baixa | Correto |
-| 2 | Atraso no pedido | Média | Média | Correto |
-| 3 | Cobrança duplicada | Alta | Alta | Correto |
-| 4 | Problema de acesso à conta | Média | Alta | Parcialmente correto |
-| 5 | Descumprimento contratual | Alta | Alta | Correto |
+| Versão | Etapa | Objetivo |
+|---|---|---|
+| V1 | Testes manuais | Avaliar a classificação inicial das reclamações. |
+| V3 | Testes manuais | Diferenciar prioridade, urgência e setor responsável. |
+| V4 / V4.1 | Testes manuais | Refinar critérios de prioridade, urgência e encaminhamento humano. |
+| V4.2 | Testes automatizados no n8n | Acrescentar justificativas para as classificações. |
+| V4.3 | Testes automatizados no n8n | Separar fatos, hipóteses e informações pendentes; melhorar sentimento e segurança. |
+| V4.4 | Planejada | Refinar a interpretação da urgência e evitar classificações baseadas apenas em expressões de pressa. |
 
-**Resultado:** 4 de 5 classificações corresponderam às expectativas iniciais.
+# 3. Primeira bateria de testes — Cinco reclamações
 
-O principal problema identificado foi a classificação do teste 4. A IA atribuiu prioridade alta a uma dificuldade de acesso sem evidências suficientes de prejuízo significativo ou impedimento de uma atividade essencial.
+## Teste 1 — Consulta sobre estoque
 
-Esse resultado demonstrou a necessidade de critérios mais claros para diferenciar a gravidade do problema de sua urgência.
+**Mensagem utilizada:**
 
-## 3. Segunda versão — V3
+"Gostaria de saber se vocês possuem uma previsão para disponibilizar novamente o produto que está esgotado no site."
 
-A partir dos resultados iniciais, o prompt foi aprimorado.
+**Resultado esperado:** Prioridade baixa.
 
-As principais mudanças foram:
+**Resultados registrados:**
 
-- Separação entre prioridade e urgência.
-- Inclusão de justificativas para as classificações.
-- Definição de critérios para avaliação humana.
-- Identificação de setores responsáveis e setores de apoio.
-- Inclusão de prazos sugeridos para o primeiro retorno.
-- Orientações para evitar promessas de solução, reembolso ou prazos não confirmados.
-
-### Resultados da V3
-
-Os cinco casos originais foram testados novamente.
-
-Os principais pontos identificados foram:
-
-- Testes 1, 2, 3 e 5 apresentaram classificações coerentes em seus aspectos principais.
-- No teste 4, a dificuldade de acesso continuou sendo classificada com prioridade alta, embora não houvesse evidência de impacto significativo.
-- No teste 5, a ameaça de registrar reclamação no Procon influenciou a percepção de urgência, sem que houvesse necessariamente uma consequência imediata comprovada.
-
-Esses resultados demonstraram que a separação entre prioridade e urgência precisava ser acompanhada de regras mais específicas.
-
-## 4. Terceira versão — V4
-
-A V4 foi desenvolvida para corrigir os problemas identificados na V3.
-
-### Principais melhorias
-
-**Critérios de prioridade**
-
-Foram definidos critérios mais claros para classificar manifestações como baixa, média ou alta, considerando o impacto sobre o cliente, prejuízos financeiros, recorrência e riscos envolvidos.
-
-**Critérios de urgência**
-
-Foram estabelecidas regras para diferenciar situações que exigem intervenção imediata, alta, normal ou baixa.
-
-**Regras para situações específicas**
-
-- Problemas de acesso não devem receber prioridade alta automaticamente.
-- A solicitação de resolução no mesmo dia não determina, sozinha, urgência alta.
-- A ameaça de procurar o Procon não determina, por si só, urgência alta.
-- Cobranças recorrentes e prejuízos financeiros significativos devem receber atenção diferenciada.
-- Suspeitas de fraude, invasão ou exposição de dados exigem encaminhamento prioritário para avaliação humana.
-
-## 5. Resultados da V4 — Primeira rodada
-
-Os cinco cenários originais foram novamente testados.
-
-| Teste | Cenário | Prioridade | Urgência | Avaliação |
-|---|---|---|---|---|
-| 1 | Consulta sobre estoque | Baixa | Baixa | Coerente |
-| 2 | Atraso no pedido | Média | Normal | Coerente |
-| 3 | Cobrança duplicada | Alta | Alta | Coerente |
-| 4 | Problema de acesso à conta | Média | Normal | Coerente |
-| 5 | Descumprimento contratual | Alta | Normal | Coerente |
-
-**Resultado:** 5 de 5 cenários apresentaram classificações coerentes com os critérios definidos.
-
-Dois pontos de atenção foram identificados:
-
-- No teste 4, o prazo de até três dias úteis pode ser lento caso o cliente esteja completamente impedido de utilizar um serviço importante.
-- No teste 5, a solicitação de resolução no mesmo dia precisa ser considerada na comunicação com o cliente, mesmo quando a urgência não justifica uma classificação alta.
-
-## 6. Segunda rodada de validação — Novos cenários
-
-Após os resultados positivos da primeira rodada, foram criados cinco novos cenários para verificar se a V4 conseguiria interpretar situações diferentes das utilizadas nos testes iniciais.
-
-### Teste 6 — Entrega incompleta
-
-**Resultado da IA:**
-- Prioridade: Média.
-- Urgência: Normal.
-- Setor responsável: Logística.
-- Avaliação humana: Sim.
-
-**Avaliação:** Classificação coerente. A IA identificou a divergência na entrega e considerou a possibilidade de cobrança integral sem presumir que houve irregularidade.
-
-**Ponto de atenção:** O prazo de três dias úteis para o primeiro retorno pode ser longo, dependendo do contexto da ocorrência.
-
-### Teste 7 — Suspeita de acesso não autorizado
-
-**Resultado da IA:**
-- Prioridade: Alta.
-- Urgência: Imediata.
-- Setor responsável: Segurança.
-- Avaliação humana: Sim.
-
-**Avaliação:** Classificação coerente. A IA identificou o risco potencial à segurança da conta e dos dados pessoais, diferenciando o caso de uma simples dificuldade de acesso.
-
-**Ponto de atenção:** A resposta sugerida afirmou que a ocorrência já havia sido encaminhada. A IA deve sugerir o encaminhamento, sem afirmar que uma ação foi realizada quando isso ainda depende de uma pessoa ou integração.
-
-### Teste 8 — Falha recorrente no serviço
-
-**Resultado da IA:**
-- Prioridade: Alta.
-- Urgência: Alta.
-- Setor responsável: Suporte técnico.
-- Avaliação humana: Sim.
-
-**Avaliação:** A prioridade alta foi considerada coerente devido à recorrência das falhas e ao impacto na rotina profissional do cliente.
-
-A urgência alta merece ressalva. O relato não esclarece se o serviço está indisponível naquele momento ou se existe uma atividade essencial impedida. A urgência normal também seria defensável com as informações disponíveis.
-
-**Ponto de atenção:** A recorrência aumenta a relevância do problema, mas não deve determinar automaticamente uma urgência alta.
-
-### Teste 9 — Insatisfação com a experiência de compra
-
-**Resultado da IA:**
-- Prioridade: Baixa.
-- Urgência: Baixa.
-- Setor responsável: Atendimento.
-- Avaliação humana: Não.
-
-**Avaliação:** Classificação coerente. A IA identificou uma manifestação de insatisfação sem prejuízo financeiro ou impedimento de compra relatado.
-
-Também reconheceu que o feedback pode contribuir para melhorias na experiência de outros consumidores.
-
-**Ponto de atenção:** A resposta sugerida deve evitar afirmar que o feedback já foi encaminhado, caso a IA esteja apenas realizando a triagem.
-
-### Teste 10 — Dúvida sobre cobrança
-
-**Resultado da IA:**
-- Prioridade: Média.
-- Urgência: Normal.
-- Setor responsável: Financeiro.
-- Avaliação humana: Sim.
-
-**Avaliação:** Classificação coerente. A IA reconheceu a necessidade de investigação financeira sem presumir que houve cobrança indevida.
-
-A solicitação de informações sobre a fatura e as condições contratuais foi adequada.
-
-## 7. Comparativo geral das versões
-
-| Etapa | Resultado observado |
+| Critério | Resultado |
 |---|---|
-| V1 | 4 de 5 classificações coerentes |
-| V3 | Melhor estrutura, mas com dificuldades na diferenciação entre prioridade e urgência |
-| V4 — Primeira rodada | 5 de 5 classificações coerentes |
-| V4 — Segunda rodada | 4 coerentes e 1 com ressalva na urgência |
+| V1 | Baixa |
+| V4.2 | Baixa |
+| Urgência na V4.2 | Normal |
+| Avaliação | Correto quanto à prioridade e urgência |
 
-Os resultados indicam uma evolução na capacidade do prompt de interpretar diferentes manifestações e aplicar critérios mais consistentes.
+**Observações:**
 
-A segunda rodada também permitiu identificar situações que merecem novos ajustes, principalmente na análise de urgência e na redação das respostas sugeridas.
+A IA identificou corretamente uma solicitação de informação, sem impacto imediato. Na versão automatizada, houve uma pequena imprecisão na escolha de palavras ao descrever a reposição do produto.
 
-## 8. Aprendizados identificados
+## Teste 2 — Atraso no pedido
 
-Durante os dez testes, foram identificados os seguintes aprendizados:
+**Mensagem utilizada:**
 
-1. Prioridade e urgência precisam ser avaliadas separadamente.
-2. A intensidade do sentimento do cliente não determina automaticamente a prioridade.
-3. A recorrência de um problema deve ser considerada, mas não significa necessariamente urgência imediata.
-4. Ameaças de reclamação em órgãos de defesa do consumidor não devem determinar sozinhas a urgência.
-5. Suspeitas de fraude, invasão ou exposição de dados exigem tratamento prioritário.
-6. A IA não deve presumir cobranças indevidas sem investigação.
-7. A avaliação humana é importante em situações financeiras, contratuais e de segurança.
-8. A resposta sugerida não deve afirmar que uma ação já foi realizada quando a IA apenas recomenda seu encaminhamento.
-9. Os prazos de primeiro retorno precisam ser compatíveis com o impacto da ocorrência, e não apenas com sua classificação de prioridade.
+"Realizei minha compra há cinco dias e o pedido ainda não foi enviado. No site, consta que o prazo de postagem era de dois dias."
 
-## 9. Limitações dos testes
+**Resultado esperado:** Prioridade média.
 
-Os dez testes foram realizados com mensagens fictícias e representam uma etapa inicial de validação.
+**Resultados registrados:**
 
-Os resultados não comprovam a precisão do sistema em situações reais de atendimento.
+| Critério | Resultado |
+|---|---|
+| V1 | Média |
+| V4 | Alta |
+| V4.2 | Média |
+| Urgência na V4.2 | Normal |
+| Avaliação | Melhora na classificação |
 
-Ainda será necessário avaliar:
+**Observações:**
 
-- Mensagens mais curtas e pouco detalhadas.
-- Clientes que apresentam várias reclamações na mesma mensagem.
-- Informações contraditórias ou incompletas.
-- Reclamações com diferentes níveis de impacto.
-- Variações de linguagem, erros de escrita e mensagens informais.
-- Comportamento do prompt em diferentes modelos de IA.
-- Consistência dos resultados em testes repetidos.
+A primeira versão apresentou classificação adequada. Em um teste posterior, a IA elevou a prioridade e a urgência sem justificativa suficiente.
 
-Também será necessário validar os prazos sugeridos conforme as regras e os níveis de serviço de cada empresa.
+Na V4.2, a classificação voltou a ser média, considerando o atraso informado e a ausência de evidências de um impacto mais grave.
 
-## 10. Próximas etapas do projeto
+A IA ainda atribuiu sentimento de frustração sem uma manifestação emocional explícita.
 
-1. Revisar os pontos de atenção identificados na segunda rodada.
-2. Avaliar a necessidade de ajustes no Prompt V4.
-3. Ampliar a quantidade e a variedade de mensagens de teste.
-4. Estruturar a saída da IA em formato JSON para facilitar integrações.
-5. Iniciar a construção do fluxo de automação no n8n.
-6. Testar a integração entre recebimento de mensagens, análise da IA e encaminhamento para atendimento humano.
+## Teste 3 — Cobrança duplicada
 
-## 11. Conclusão
+**Mensagem utilizada:**
 
-O desenvolvimento das versões V1, V3 e V4 demonstrou a importância de testar, identificar falhas e aprimorar continuamente as instruções fornecidas à IA.
+"Já entrei em contato quatro vezes sobre uma cobrança duplicada. Vocês continuam descontando o valor da minha conta e ninguém resolve. Quero meu dinheiro de volta."
 
-A V4 apresentou resultados coerentes nos dez cenários avaliados, embora um deles tenha revelado uma ressalva importante na classificação de urgência.
+**Resultado esperado:** Prioridade alta.
 
-O projeto ainda está em fase de prototipação e validação. O próximo objetivo é transformar a classificação textual em uma estrutura organizada de dados e iniciar sua integração com o n8n.
+**Resultados registrados:**
 
-A proposta é desenvolver uma ferramenta de apoio à equipe de atendimento, capaz de organizar manifestações, identificar situações prioritárias e facilitar o encaminhamento das demandas, mantendo a avaliação humana nas decisões que exigem análise especializada.
+| Critério | Resultado |
+|---|---|
+| V1 | Alta |
+| V4 | Alta |
+| V4.2 | Alta |
+| Urgência na V4.2 | Alta |
+| Avaliação | Classificação adequada, com ajustes necessários na resposta |
+
+**Observações:**
+
+A IA identificou corretamente a recorrência do problema, as tentativas anteriores de resolução e a continuidade dos descontos.
+
+A versão automatizada apresentou justificativa mais detalhada, mas teve problemas na descrição do sentimento, chegando a apresentar termos contraditórios.
+
+Também foi identificada a necessidade de evitar solicitações desnecessárias de informações financeiras sensíveis.
+
+## Teste 4 — Dificuldade de acesso à conta
+
+**Mensagem utilizada:**
+
+"Não consigo entrar na minha conta de jeito nenhum. Coloco meu e-mail e senha e dá 'credenciais inválidas'. Já cliquei em 'esqueci minha senha' duas vezes e o link de redefinição nunca chega na minha caixa de entrada, nem no spam. Preciso acessar meu painel agora."
+
+**Resultado esperado:** Prioridade média, até que o impacto seja confirmado.
+
+**Resultados registrados:**
+
+| Critério | Resultado |
+|---|---|
+| V1 | Alta |
+| V4.1 | Média |
+| V4.2 | Alta |
+| V4.3 | Alta |
+| Urgência na V4.3 | Imediata |
+| Avaliação | Problema de classificação ainda não resolvido |
+
+**Observações:**
+
+Este teste demonstrou uma dificuldade recorrente da IA: interpretar a expressão "preciso acessar meu painel agora" como evidência suficiente de urgência imediata.
+
+Mesmo após a inclusão de regras para diferenciar prioridade e urgência, o modelo continuou presumindo que o acesso ao painel era essencial para as atividades do cliente.
+
+A V4.3 melhorou a separação entre fatos, hipóteses e informações pendentes, mas ainda apresentou uma justificativa contraditória.
+
+Também classificou o sentimento como frustração sem evidências emocionais suficientemente claras.
+
+## Teste 5 — Serviço contratado e não entregue
+
+**Mensagem utilizada:**
+
+"Estou muito decepcionado. Contratei o serviço, paguei antecipadamente e a empresa não cumpriu o que prometeu. Se ninguém resolver hoje, vou registrar uma reclamação no Procon."
+
+**Resultado esperado:** Prioridade alta.
+
+**Resultados registrados:**
+
+| Critério | Resultado |
+|---|---|
+| V1 | Alta |
+| V4 | Alta |
+| Avaliação | Correto |
+
+**Observações:**
+
+A IA identificou o descumprimento do serviço contratado e o pagamento antecipado. A ocorrência exige avaliação humana para verificar o contrato, as condições da contratação e as providências cabíveis.
+
+---
+
+# 4. Segunda bateria de testes — Novas situações
+
+Nesta etapa, foram acrescentadas situações diferentes para ampliar a avaliação do comportamento da IA.
+
+## Teste 6 — Entrega parcial do pedido
+
+**Mensagem utilizada:**
+
+O cliente relata que recebeu apenas parte dos produtos comprados e que alguns itens não estavam na embalagem.
+
+**Resultado esperado:** Prioridade média.
+
+**Resultado da IA:** Prioridade média | Urgência normal.
+
+**Setor indicado:** Logística.
+
+**Avaliação:** Adequado.
+
+**Observações:**
+
+A IA identificou corretamente uma divergência na entrega e indicou o setor responsável. A ocorrência precisa ser verificada antes de qualquer promessa de envio dos itens faltantes.
+
+## Teste 7 — Suspeita de acesso não autorizado
+
+**Mensagem utilizada:**
+
+O cliente relata ter identificado acessos à conta que não reconhece.
+
+**Resultado esperado:** Prioridade alta, com necessidade de avaliação imediata da segurança.
+
+**Resultado da IA:** Prioridade alta | Urgência imediata.
+
+**Setor indicado:** Segurança / Suporte técnico.
+
+**Avaliação:** Adequado quanto à necessidade de avaliação humana.
+
+**Observações:**
+
+O caso demonstrou a importância de identificar situações relacionadas à segurança da conta e não permitir que a IA execute ou recomende alterações sensíveis sem validação humana.
+
+Também foi identificada a necessidade de não afirmar que a ocorrência já foi encaminhada sem confirmação.
+
+## Teste 8 — Indisponibilidade recorrente do serviço
+
+**Mensagem utilizada:**
+
+O cliente relata que o serviço ficou indisponível várias vezes durante a semana.
+
+**Resultado da IA na V4:** Prioridade alta | Urgência imediata.
+
+**Resultado da IA na V4.1:** Prioridade alta | Urgência normal, enquanto o impacto atual não estiver confirmado.
+
+**Avaliação:** Melhora após o ajuste.
+
+**Observações:**
+
+O teste demonstrou que a recorrência deve influenciar a prioridade, mas não determina automaticamente a urgência imediata.
+
+É necessário verificar se o serviço continua indisponível, qual atividade foi afetada e se existe prejuízo ou risco atual.
+
+## Teste 9 — Insatisfação com a experiência de compra
+
+**Mensagem utilizada:**
+
+"Estou bastante insatisfeito com a experiência de compra. Achei o processo confuso, o site é difícil de navegar e não gostei da forma como as informações dos produtos são apresentadas. Gostaria que melhorassem isso."
+
+**Resultado da IA:** Prioridade baixa | Urgência baixa.
+
+**Setor indicado:** Atendimento / Experiência do Cliente.
+
+**Avaliação:** Adequado.
+
+**Observações:**
+
+A IA identificou uma manifestação de insatisfação e uma oportunidade de melhoria na experiência de compra.
+
+O caso pode ser registrado como feedback, sem necessidade automática de intervenção humana.
+
+## Teste 10 — Cobrança não reconhecida
+
+**Mensagem utilizada:**
+
+"Consultei minha fatura e encontrei um valor que não reconheço. Ainda não sei se é uma cobrança indevida ou alguma taxa prevista no contrato. Gostaria de entender do que se trata."
+
+**Resultado da IA:** Prioridade média | Urgência normal.
+
+**Setor indicado:** Financeiro / Cobrança.
+
+**Avaliação:** Adequado.
+
+**Observações:**
+
+A IA identificou corretamente que ainda não existe confirmação de cobrança indevida. O caso precisa de análise do setor financeiro, sem antecipar conclusões ou prometer estorno.
+
+---
+
+# 5. Testes automatizados com n8n e Groq
+
+Após a validação inicial dos prompts manualmente, o projeto avançou para uma etapa de automação.
+
+Foi criado um fluxo no n8n para receber uma mensagem fictícia, enviá-la ao modelo de IA e retornar uma análise estruturada.
+
+**Componentes utilizados:**
+
+- n8n: ferramenta de automação.
+- Edit Fields: entrada da mensagem.
+- Basic LLM Chain: estrutura do processamento do prompt.
+- Groq Chat Model: modelo de linguagem utilizado nos testes.
+
+**Objetivo desta etapa:**
+
+Verificar se as regras definidas no prompt seriam respeitadas também durante a execução automatizada.
+
+## Principais observações dos testes automatizados
+
+1. A IA conseguiu identificar categorias e setores responsáveis de maneira consistente.
+2. A classificação de prioridade melhorou após a inclusão de critérios mais claros.
+3. A urgência ainda apresentou interpretações excessivas em situações com expressões de pressa.
+4. O sentimento do cliente foi identificado incorretamente em mensagens sem manifestação emocional explícita.
+5. A justificativa ajudou a visualizar os critérios utilizados, mas também revelou contradições.
+6. A separação entre fatos, hipóteses e informações pendentes melhorou a organização das respostas.
+
+---
+
+# 6. Comparativo da evolução
+
+| Aspecto avaliado | Problema identificado | Ajuste realizado |
+|---|---|---|
+| Prioridade | Classificação influenciada pelo tom emocional | Inclusão de critérios objetivos de impacto |
+| Urgência | Recorrência ou pressa interpretadas como urgência imediata | Separação entre prioridade e urgência |
+| Setor responsável | Encaminhamento pouco detalhado | Inclusão de setores responsáveis |
+| Justificativa | Pouca transparência sobre a classificação | Inclusão de justificativas |
+| Fatos e hipóteses | Possibilidade de apresentar suposições como fatos | Separação das informações |
+| Sentimento | Emoções presumidas a partir de reclamações | Regra para identificar apenas sentimentos evidenciados |
+| Segurança | Risco de recomendações envolvendo operações sensíveis | Inclusão de regras de proteção e validação humana |
+
+# 7. Principais aprendizados
+
+Durante os testes, foram identificados alguns pontos importantes:
+
+- Um prompt precisa ser testado com diferentes situações para revelar falhas que não aparecem em exemplos simples.
+- A classificação de prioridade não deve depender exclusivamente do sentimento do cliente.
+- Prioridade e urgência são critérios diferentes e precisam ser avaliados separadamente.
+- Uma justificativa detalhada não garante que a classificação esteja correta.
+- A IA precisa reconhecer quando não possui informações suficientes.
+- A intervenção humana continua sendo necessária em situações financeiras, de segurança e de alterações de conta.
+- A automação precisa respeitar limites de atuação e não afirmar que procedimentos foram executados sem confirmação.
+
+# 8. Próximas etapas
+
+- [ ] Desenvolver a versão 4.4 do prompt.
+- [ ] Repetir o teste de acesso à conta.
+- [ ] Repetir o teste de indisponibilidade recorrente.
+- [ ] Verificar se a IA diferencia sentimento de urgência.
+- [ ] Avaliar a consistência das justificativas.
+- [ ] Testar novas mensagens fictícias.
+- [ ] Definir um formato de saída estruturado em JSON.
+- [ ] Preparar a integração com uma planilha para registrar as ocorrências.
+- [ ] Avaliar o encaminhamento de casos prioritários para uma equipe humana.
+
+# 9. Considerações finais
+
+O desenvolvimento deste protótipo tem demonstrado que a utilização de inteligência artificial no atendimento ao cliente exige mais do que a criação de um prompt.
+
+É necessário testar, observar os resultados, identificar inconsistências e realizar ajustes continuamente.
+
+A experiência com os testes também permitiu aplicar conhecimentos de Experiência do Cliente na construção de regras para classificação de reclamações, identificação de prioridades e organização das informações.
+
+O projeto ainda está em desenvolvimento e os resultados apresentados são experimentais, baseados em mensagens fictícias. As funcionalidades e os critérios serão aprimorados antes de qualquer aplicação em um ambiente real.
+
+**Registro de evolução:** este documento deverá ser atualizado a cada nova versão do prompt e a cada bateria de testes realizada.
+
+---
+
+# 10. Histórico de atualizações do documento
+
+| Data | Versão do prompt | Atualização |
+|---|---|---|
+| Outubro/2026 | V1 | Primeiros testes de classificação |
+| Novembro/2026 | V3 e V4 | Refinamento dos critérios |
+| Novembro/2026 | V4.1 | Ajustes na diferenciação entre prioridade e urgência |
+| Novembro/2026 | V4.2 | Testes automatizados e inclusão de justificativas |
+| Novembro/2026 | V4.3 | Separação entre fatos, hipóteses e informações pendentes |
+| A definir | V4.4 | Próxima etapa de aprimoramento |
+
