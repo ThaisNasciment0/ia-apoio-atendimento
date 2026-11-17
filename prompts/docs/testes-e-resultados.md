@@ -451,4 +451,34 @@ A IA reconheceu que uma cobrança não identificada precisa de análise, mesmo s
 
 A V4.6 apresentou evolução em relação à V4.5. A nova regra financeira funcionou conforme esperado. Os ajustes de escrita e objetividade das perguntas serão acompanhados nos próximos testes.
 
+## Teste 15 — Cobrança recorrente sem solução
 
+**Mensagem testada:**
+
+"Já é a segunda vez que aparece essa cobrança de R$ 189,90 na minha fatura. Entrei em contato com o atendimento na semana passada e me informaram que iriam verificar, mas até agora não tive retorno. A cobrança apareceu novamente e não quero continuar pagando por algo que não reconheço. Preciso que verifiquem essa situação."
+
+**Resultado da IA — V4.6:**
+
+- **Categoria:** Cobrança não reconhecida – fatura
+- **Prioridade:** Alta
+- **Urgência:** Normal
+- **Sentimento:** Neutro
+- **Setor responsável:** Financeiro / Cobrança
+
+**Avaliação:** Classificação correta.
+
+**Pontos positivos:**
+- Identificou a recorrência da cobrança e a tentativa anterior sem solução.
+- Elevou a prioridade para alta, conforme os critérios da seção 16.
+- Diferenciou prioridade alta de urgência imediata.
+- Não presumiu que a cobrança era indevida.
+- Não prometeu estorno ou cancelamento.
+- Separou fatos, hipóteses e informações pendentes.
+
+**Oportunidades de melhoria:**
+- Evitar acrescentar informações não confirmadas, como afirmar que as cobranças ocorreram em faturas consecutivas.
+- Manter os resumos e fatos sempre em terceira pessoa.
+- Não associar recorrência automaticamente à insatisfação do cliente.
+- Solicitar somente as informações necessárias para a análise.
+
+**Conclusão:** A V4.6 apresentou o comportamento esperado na classificação de prioridade e urgência. Não será alterada neste momento. Os ajustes de linguagem serão acumulados para uma próxima versão do prompt.
